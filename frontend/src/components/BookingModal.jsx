@@ -509,7 +509,7 @@ const BookingModal = ({
       const totalAmount = (selectedEvent.ticketPrice || selectedEvent.price) * selectedTickets + 5;
 
       const { data } = await axios.post('/api/payment/orders', {
-        amount: totalAmount * 100,
+        amount: Math.round(totalAmount * 100),
       });
 
       const options = {

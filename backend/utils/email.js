@@ -18,8 +18,12 @@ const transporter = nodemailer.createTransport({
 });
 
 transporter.verify((err, success) => {
-  if (err) console.error('❌ Email transporter failed:', err);
-  else console.log('✅ Email transporter ready');
+  if (err) {
+    console.error('❌ Email transporter failed:', err);
+    // Don't throw error, just log it to prevent app crash
+  } else {
+    console.log('✅ Email transporter ready');
+  }
 });
 
 async function sendBookingConfirmation(to, subject, text, html, attachments) {
