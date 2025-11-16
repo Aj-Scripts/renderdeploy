@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: renderdeploy
+    env: docker
+    plan: free
+    build:
+      docker:
+        buildArgs:
+          VITE_RAZORPAY_KEY_ID: ${VITE_RAZORPAY_KEY_ID}
+    envVars:
+      - key: VITE_RAZORPAY_KEY_ID
+        sync: false

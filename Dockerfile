@@ -4,15 +4,18 @@ FROM node:22.17.0 AS frontend
 # Set working directory
 WORKDIR /app
 
+# Accept build argument for Razorpay key
+ARG VITE_RAZORPAY_KEY_ID
+
+# Set environment variable for Razorpay key
+ENV VITE_RAZORPAY_KEY_ID=$VITE_RAZORPAY_KEY_ID
+
 # Copy and install frontend dependencies
 COPY frontend/package*.json ./frontend/
 RUN cd frontend && npm install
 
 # Copy frontend source and build
 COPY frontend ./frontend
-
-# Set environment variable for Razorpay key (passed from Render)
-ENV VITE_RAZORPAY_KEY_ID=$VITE_RAZORPAY_KEY_ID
 
 RUN cd frontend && npm run build
 
