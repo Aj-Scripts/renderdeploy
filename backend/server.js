@@ -29,7 +29,8 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://127.0.0.1:5000', // Same origin (if full-stack in one container)
   'http://localhost:5000', // Added to allow localhost:5000 explicitly
-  'https://eventsapp-bjhyb7hje9a7fze3.canadacentral-01.azurewebsites.net' // ✅ your deployed frontend
+  'https://eventsapp-bjhyb7hje9a7fze3.canadacentral-01.azurewebsites.net', // ✅ your deployed frontend
+  'https://renderdeploy-wyge.onrender.com' // ✅ Render deployed URL
 ];
 
 
