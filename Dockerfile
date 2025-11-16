@@ -10,6 +10,10 @@ RUN cd frontend && npm install
 
 # Copy frontend source and build
 COPY frontend ./frontend
+
+# Set environment variable for Razorpay key (passed from Render)
+ENV VITE_RAZORPAY_KEY_ID=$VITE_RAZORPAY_KEY_ID
+
 RUN cd frontend && npm run build
 
 
